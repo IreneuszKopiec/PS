@@ -2,6 +2,57 @@
 #include <stdlib.h>
 #include <math.h>
 
+/*
+int potega(int w) {
+    for(int i=1;i<w;i++) {
+        if(i*i==w) {
+            return i;
+        }
+    }
+    return 0;
+}
+*/
+
+int modul(int x) {
+    if(x>0)
+        return x;
+    return -x;
+}
+int silnia(int x) {
+    if(x==0)
+        return 1;
+    return silnia(x-1)*x;
+}
+float potega(int x) {
+    if(x==0)
+        return 1;
+    if(x>0)
+    return 2*potega(x-1);
+    return 1/potega(-x);
+}
+unsigned int podloga(unsigned int x) {
+    int i=1;
+    while(i*i<=x) {
+        i++;
+    }
+    return i-1;
+}
+unsigned int suma(unsigned int n) {
+    int suma=0,i;
+    for(i=1;i<=n;i++) {
+        suma+=podloga(i);
+    }
+    return suma;
+}
+void trojki(unsigned int n) {
+    for(int i=1;i<n;i++) {
+        for(int j=1;j<n;j++) {
+            if(i*i+j*j==n) {
+                printf("%d^2+%d^2=%d\n",i,j,n);
+            }
+        }
+    }
+}
 int main()
 {
     /*int x, y, z;
@@ -53,7 +104,7 @@ int main()
         if(wx==0&&wy==0) {
             printf("Uklad nieoznaczony. Nieskonczenie wiele rozwiazan");
         } else {
-            printf("Układ sprzeczny. Brak rozwiazan");
+            printf("Uk³ad sprzeczny. Brak rozwiazan");
         }
     }
     */
@@ -133,6 +184,7 @@ int main()
     */
 
 
+    /*
     int n,m,dzielnik,reszta,max,min,help;
     scanf("%d%d",&n,&m);
     if(m>n){
@@ -153,7 +205,106 @@ int main()
             }
     }
     printf("%d",dzielnik);
+    */
 
+
+    /*
+    int w1,w2,trzy=1000,p;
+    for(int i=1;i<trzy;i++) {
+        for(int j=1;j<trzy;j++) {
+            if(i<j) {
+                w1=i*j;
+                w2=(i+1)*(j+1);
+                if(w1==potega(w1)&&w2==potega(w2)) {
+                    if(w1<trzy) {
+                        p=potega(w1);
+                        printf("%d",p);
+                    }
+                }
+            }
+        }
+    }
+    */
+
+    /*
+    int i=0,j=0,k,m;
+    for(int i=i+1;i<1000;i++) {
+        k=1;
+        while(i*j-k*k>0) {
+            k++;
+        }
+        if(i*j==k*k) {
+            m=k;
+            while((i+1)*(j+1)-m*m>0) {
+                m++;
+            }
+            if((i+1)*(j+1)==m*m) {
+                printf("(%d,%d)",i,j);
+            }
+        }
+    }
+    */
+
+    /*
+    int x,d,r,p;
+    for(p=1;x<20;p++) {
+        x=(pow(2,p)-1)*pow(2,p-1);
+        r=1;
+        for(d=2;d<x;d++) {
+            if(x%d==0) {
+                r+=d+x/d;
+            }
+        }
+        if(r==x) {
+            printf("%d\n",r);
+        }
+    }
+    */
+
+    /*
+    int i;
+    int x=5;
+    int tak = 1;
+    for(i=2;i<x;i++) {
+        if(x%i==0) {
+            tak=0;
+        }
+    }
+    if(tak) {
+        printf("%d",x);
+    }
+    */
+
+    /*
+    int n,w;
+    scanf("%d",&n);
+    printf("Modul z liczby %d wynosi %d",n,modul(n));
+    */
+    /*
+    unsigned int n;
+    scanf("%d",&n);
+    printf("Silnia z liczby %d wynosi %d",n,silnia(n));
+    */
+    /*
+    int n;
+    scanf("%d",&n);
+    printf("%d  %f",n,potega(n));
+    */
+    /*
+    unsigned int n;
+    scanf("%d",&n);
+    printf("podloga z %d wynosi %d",n,podloga(n));
+    */
+
+    /*
+    unsigned int n;
+    scanf("%d",&n);
+    printf("Suma podlog z %d wynosi %d",n,suma(n));
+    */
+
+    unsigned int n;
+    scanf("%d",&n);
+    trojki(n);
 
     return 0;
 }
